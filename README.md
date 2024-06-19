@@ -1,5 +1,5 @@
 # Multiple Instance Learning based whole slide image classification
-The goal of this project consists in implementing a data processing pipeline, specifically for large histological image (whole slide images or WSIs) binary classification (tumoral or non-tumoral tissue). In the readme section, you'll find the motivation for this project and the result obtained using the Camelyon16 dataset.
+The goal of this project consists in implementing a data processing pipeline, specifically for large histological image (whole slide images or WSIs) binary classification (tumoral or non-tumoral tissue). In the readme section, explanations on this project and the result obtained using the Camelyon16 dataset.
 
 # Tile extraction
 The main issue in this task is the size of each WSI, having billions of pixels. To solve this, the first step is to divide each WSI into smaller sized tiles. For this purpose, the script ```openslide_extraction.py``` allows you to process each WSI by first breaking it down into 224*224 tiles (this size was chosen mostly for practical purposes regarding the next step). The script then converts each RGB tile to HSV, then run a thresholding on the saturation channel to keep only the tiles containing biological tissue. Here is result on one WSI:
