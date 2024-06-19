@@ -13,12 +13,22 @@ The next step is feature extraction. Now that we transformed each WSI into sets 
 # Data formatting
 Now that the features are extracted, the dataset is much easier to process. The initial goal of the project was to classify WSI, so we now have to arrange the features as "bags", so that a model can be trained to aggregate the features within each bag to eventually provide a label for the corresponding WSIs. Each bag contains the features of every tile from a single WSI. I chose to use a graph neural network for the aggregation / classification phase. The ```dataset_creation.py``` script can be used to create graphs for each bag. Basically, each tile (or feature vector) is represented by a node, and tile adjacency is represented by an edge, in an 8-connected fashion. The grid-like graphs are then saved as .pt files.
 
-# Feature extraction
+# Aggregation / classification
+As it was said earlier, the aggregation model is a GNN. It essentially consists in a GATConv layer that allows each node to aggregate neighboring information using an attention mechanism, an attention-based pooling layer to obtain a graph representation in the form of a vector of length 512, and two dense layers.
 
-We then pass each tile through a feature extractor. Here it is trained in self supervision on histological images.
-The features vectors are then encoded as nodes and linked together when the nodes represent adjacent tiles in the original image.
-An aggregation/classification model is trained to classify these graphs, providing a label at the WSI level.
-The training time is actually quite short since the graphs are small. The preprocessing is the longest part.
+# Training / evaluation
+396 WSIs from the 400 in the Camelyon16 dataset were used to train the model. The hyperparameters were chosen empirically:
+- Learning rate: 0.00005
+- Weight decay: 5e-3
+- Early stopping patience: 10
+- Positive class weight: ~1.4
+- Batch size: 4
+- Epochs: 50
+The ```train.py``` script can be used to train and evaluate the model, using a 5-fold cross validation strategy. The metric used for the evaluation is AUROC.
+Here is the evaluation result after training the model:
+<div style="text-align: center;">
+  <img src="auroc.png?raw=true" alt="grid" style="width: 500px; height: 500px; display: inline-block;">
+</div>
 
 
 # Files overview
