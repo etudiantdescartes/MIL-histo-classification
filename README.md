@@ -29,15 +29,8 @@ Here is the evaluation result after training the model:
 <div style="text-align: center;">
   <img src="auroc.png?raw=true" alt="grid" style="width: 500px; height: 500px; display: inline-block;">
 </div>
+As we can see, the result is quite high, without reaching SOTA performance.
+Some improvements could be made regarding the evaluation: given more time and resources, it would be interesting to test the model on data from a different source. It would also be interesting to conduct an in-depth study on the regions that are attended by the model, as well as their impact on the classification score. Another possibility would be trying other feature extractors or implementing a new one.
 
-
-# Files overview
-- ```openslide_extraction.py``` Tissue segmentation and patch extraction WSIs
-- ```visualization.py``` Visualization of graphs created from WSIs and attention maps for GAT layers
-- ```train.py``` Training and evaluation
-- ```model.py``` Classification models
-- ```feature_extraction.py``` Patch feature extraction
-- ```dataset_creation.py``` Creating graphs using patch coordinates (8-connected adjacent patches are linked in the graph)
-
-
-https://drive.google.com/file/d/1YUafo9802L_GRpN_jOS1neH3aALlcwYv/view?usp=drive_link
+Here is the link for the model used as the feature extractor:
+[](https://drive.google.com/file/d/1YUafo9802L_GRpN_jOS1neH3aALlcwYv/view?usp=drive_link)
