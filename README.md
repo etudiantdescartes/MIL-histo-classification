@@ -29,5 +29,5 @@ Here is the evaluation result after training the model:
 <div style="text-align: center;">
   <img src="auroc.png?raw=true" alt="grid" style="width: 500px; height: 500px; display: inline-block;">
 </div>
-As we can see, the result is quite high, without reaching SOTA performance.
+As we can see, the result is quite high, without reaching SOTA performance. Each fold seems to yield approximately the same result.
 Some improvements could be made regarding the evaluation: given more time and resources, it would be interesting to test the model on data from a different source. It would also be interesting to conduct an in-depth study on the regions that are attended by the model, as well as their impact on the classification score. Another possibility would be trying other feature extractors or implementing a new one.
