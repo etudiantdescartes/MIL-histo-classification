@@ -1,5 +1,5 @@
 # Multiple Instance Learning based whole slide image classification
-WSIs are too large to be processed in one go by a neural network, so the idea is to divide them into tiles:
+The goal of this project consists in implementing a data processing pipeline, specifically for large histological image classification. In the readme section, you'll find the motivation for this project and the result obtained using the Camelyon16 dataset.
 <div style="text-align: center;">
   <img src="grid.png?raw=true" alt="grid" style="width: 500px; height: 500px; display: inline-block;">
 </div>
@@ -18,3 +18,4 @@ The training time is actually quite short since the graphs are small. The prepro
 - ```dataset_creation.py``` Creating graphs using patch coordinates (8-connected adjacent patches are linked in the graph)
 
 
+https://drive.google.com/file/d/1YUafo9802L_GRpN_jOS1neH3aALlcwYv/view?usp=drive_link
